@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>The Nordic Grid - Energy Articles</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="shortcut icon" href="images/favicon.ico">
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index" class="logo"><strong>The Nordic Grid</strong> Energy Editorial</a>
+									<ul class="icons">
+										<li><a href="https://www.youtube.com/channel/UC8mi5_41qaHfxglj9_ARj1A" class="icon fa-youtube"><span class="label">YouTube</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Using SQL to analyse the power market</h1>
+										<blockquote>SQL is a powerful tool in data analysis and storage. SQL can be used directly with its many statements and clauses. Db2 on cloud by IBM is used in this article to showcase how data can be stored and analysed in SQL from a Excel source.</blockquote>
+									</header>
+									<!-- Content -->
+										<h2 id="content">Download data</h2>
+										<p>A lot of data is stored online as xlsx or csv-files. In this article, data for power prices in the Nordics have been downloaded from Nordpool, converted to csv and subsequently to SQL. When you use Db2 on cloud it is important that the data is in a csv format (comma separated), this is not necessarily the case for other clouds or systems.</p>
+											
+									<!-- <hr class="major" /> -->
+
+									<h4>Creating the table</h4>
+													<span class="image fit"><img src="images/sqlcsv.jpg" alt="" /></span>
+									<p><b>Creating the table</b> on the cloud is done with the code below. When the data is loaded on to the table in the database it must be in csv format.</p>
+									<pre><code>CREATE TABLE power_price (
+	date_j date,
+	syst decimal(5,2),
+	se1 decimal(5,2),
+	se2 decimal(5,2),
+	se3 decimal(5,2),
+	se4 decimal(5,2),
+	fi decimal(5,2),
+	dk1 decimal(5,2),
+	dk2 decimal(5,2),
+	oslo decimal(5,2),
+	kristiansand decimal(5,2),
+	bergen decimal(5,2),
+	molde decimal(5,2),
+	trondheim decimal(5,2),
+	tromsø decimal(5,2),
+	ee decimal(5,2),
+	lv decimal(5,2),
+	lt decimal(5,2)
+);
+</code></pre>
+									<p></p>
+									<h4>The table</h4>
+													<span class="image fit"><img src="images/sqltable.jpg" alt="" /></span>
+									<p>When you load the data into the table you have created, it is important that the values of the data are in the right order and datatype (decimal, varchar, date, char, etc.).</p>
+									<h4>Various SELECT statements</h4>
+									<p>To analyse the table that we have created in SQL, we can run various select statements with different clauses. </p>
+									<pre><code>SELECT *
+FROM power_price
+WHERE date_j='2019-01-21';
+
+SELECT AVG(oslo)
+FROM power_price;
+</code></pre>
+									<p>The output of AVG(oslo) is 53.5876 (EUR/MWh).<br>blah<br></p>
+									<p>Having one table only is obviously not enough for a sufficient analysis. The power price data must be analysed in relation to other data like meteorological data, prices for fossil fuels (i.a.). The more data you go through; the more information you will get, which will make it easier to comprehend the power market.</p>
+									<span class="image fit"><img src="images/jan19italia.jpg" alt="" /></span>
+
+													<!-- Box with sources-->
+													<h3>Sources and credits</h3>
+													<div class="box">
+														<p>Data from nordpool. Db2 on cloud used to store and analyse data.</p>
+													</div>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index"><b>Homepage</b></a></li>
+										<li>
+											<span class="opener"><b>Articles</b></span>
+											<ul>
+												<li><a href="energyarticles">Energy</a></li>
+												<li><a href="powermarketarticles">Power Market</a></li>
+												<li><a href="economyarticles">Economy</a></li>
+											</ul>
+										</li>
+										<li><a href="programming"><b>Programming</b></a></li>
+										<li><a href="contribute"><b>Want to contribute to this site?</b></a></li>
+									</ul>
+								</nav>
+
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Want to be a part of the team and write articles? Or maybe you want to advertise on this website? Just send me a mail!</p>
+									<ul class="contact">
+										<li class="fa-envelope-o">hallingstad.andreas(at)gmail.com</li>
+										<li class="fa-home">Grimstad, Norway</li>
+									</ul>
+								</section>
+								
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; The Nordic Grid. All rights reserved.<br>Images: <a href="https://unsplash.com">Unsplash</a>.<br>Run by <a href="https://www.linkedin.com/in/andreasolavhallingstad/">Andreas</a><br>Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
