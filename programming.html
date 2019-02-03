@@ -11,7 +11,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="shortcut icon" href="images/favicon.ico">
-
 	</head>
 	<body class="is-preload">
 
@@ -26,196 +25,38 @@
 								<header id="header">
 									<a href="index" class="logo"><strong>The Nordic Grid</strong> Energy Editorial</a>
 									<ul class="icons">
+										<!--<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li> -->
 										<li><a href="https://www.youtube.com/channel/UC8mi5_41qaHfxglj9_ARj1A" class="icon fa-youtube"><span class="label">YouTube</span></a></li>
+										<!--<li><a href="https://www.linkedin.com/in/andreasolavhallingstad/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li> -->
 									</ul>
 								</header>
 
-							<!-- Content -->
-							<section>
-								<h2>Programming</h2>
-								<p>Learning programming will give you an advantage one way or another. We recommend Python and SQL as those two languages should cover most of your needs</p>
-								<h2>Python codes</h2>
-								<h3>Linear Interpolation</h3>
-								<p>This first code is a simple linear interpolation calculator where you need to make sure you add the right y's and x's!<p>
-													<pre><code>x = float(input("Enter value of x: "))
-y1 = float(input("Enter value of y1: "))
-y2 = float(input("Enter value of y2: "))
-x1 = float(input("Enter value of x1: "))
-x2 = float(input("Enter value of x2: "))
+								
+								<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Recent Energy Articles</h2>
+									</header>
+									<div class="posts">
+										<article>
+											<a href="analysepowermarketwithsql" class="image"><img src="images/pic09.jpg" alt="" /></a>
+											<h3>Power Market Analysis With SQL</h3>
+											<p>SQL is a powerful tool in data analysis and storage. Db2 on cloud by IBM is used in this article to showcase how data can be stored and analysed in SQL from an Excel source.</p>
+											<ul class="actions">
+												<li><a href="analysepowermarketwithsql" class="button">Read more</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="programmingthings" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<h3>Various Codes</h3>
+											<p>These are some basic codes used in Python to help you learn a language and calculators.</p>
+											<ul class="actions">
+												<li><a href="programmingthings" class="button">Read more</a></li>
+											</ul>
+										</article>
+									</div>
+								</section>
 
-ans = y1 + (x-x1)*(y2-y1)/(x2-x1)
-
-print("Answer is: ", ans)
-</code></pre>
-								<h3>Conversion Calculator</h3>
-								<p>This is a very basic conversion calculator that you can easily alter to fit the conversions that you need.<p>
-												<pre><code>conv = input("""A for kWh -> MJ
-B for MJ -> kWh: """)
-
-if conv == 'A':
-    kwh = float(input("Enter amount of kWh: "))
-    mj = 3.6 * kwh
-    print("The amount in MJ is: %f MJ" % mj)
-else:
-    mj = float(input("Enter amount of MJ: "))
-    kwh = mj / 3.6
-    print("The amount in kWh is: %f kWh" % kwh)
-</code></pre>
-
-								<h3>Vocabulary test</h3>
-								<p>This is a vocabulary test with 20 questions. This particular test was used to learn italian, however it can be used to learn a lot more than just that.<p>
-												<pre><code>print("Vocabulary Test")
-score = 0
-total_q = 20
-
-ans = input("1. To download: ")
-if ans.lower() == 'scaricare':
-    score += 1
-    print('Corretta')
-else:
-    print('Falso, "scaricare" è corretta')
-    
-ans = input("2. To fall: ")
-if ans.lower() == 'cadere':
-    score += 1
-    print('Corretta')
-else:
-    print('Falso, cadere')
-    
-ans = input("3. To go down/off: ")
-if ans.lower() == 'scendere':
-    score += 1
-    print('Corretta')
-else:
-    print('Falso, scendere')
-    
-ans = input("4. To place (Ask a question, være oppmerksom, legge grunnlaget: ")
-if ans.lower() == 'porre':
-    score += 1
-    print('Corretta pongo poni pone poniamo ponete pongono')
-else:
-    print('Falso, porre - pongo poni pone poniamo ponete pongono')
-    
-ans = input("5. To turn off, skru av/ slå av: ")
-if ans.lower() == "spegnere":
-    score += 1
-    print('Corretta')
-else:
-    print('Falso spegnere')
-
-ans = input("6. To appear: ")
-if ans.lower() == 'apparire':
-    score += 1
-    print('Corretta')
-else:
-    print('Falso, apparire')
-    
-ans = input("7. To fear: ")
-if ans.lower() == 'temere':
-    score += 1
-    print('Corretta')
-else:
-    print('Falso, temere')
-    
-ans = input("8. To rise: ")
-if ans.lower() == 'sorgere':
-    score += 1
-    print('Corretta')
-else:
-    print('Falso, sorgere')
-    
-ans = input("9. To get on, go up: ")
-if ans.lower() == 'salire':
-    score += 1
-    print('Corretta')
-else:
-    print('Falso, salire')
-    
-ans = input("10. To collapse: ")
-if ans.lower() == "crollare":
-    score += 1
-    print('Corretta')
-else:
-    print('Falso crollare')
-
-ans = input("11. To advice: ")
-if ans.lower() == 'consigliare':
-    score += 1
-    print('Corretta')
-else:
-    print('Falso, consigliare')
-    
-ans = input("12. To take care of: ")
-if ans.lower() == 'curare':
-    score += 1
-    print('Corretta')
-else:
-    print('Falso, curare')
-    
-ans = input("13. To desire: ")
-if ans.lower() == "desiderare":
-    score += 1
-    print('Corretta')
-else:
-    print('Falso desiderare')
-
-ans = input("14. To avoid: ")
-if ans.lower() == "evitare":
-    score += 1
-    print('Corretta')
-else:
-    print('Falso evitare')
-
-ans = input("15. To escape: ")
-if ans.lower() == "sfuggire":
-    score += 1
-    print('Corretta')
-else:
-    print('Falso sfuggire')
-
-ans = input("16. To worry: ")
-if ans.lower() == 'preoccupare':
-    score += 1
-    print('Corretta')
-else:
-    print('Falso, preoccupare')
-    
-ans = input("17. To lend: ")
-if ans.lower() == 'prestare':
-    score += 1
-    print('Corretta, to book is prenotare')
-else:
-    print('Falso, prestare')
-    
-ans = input("18. To tell (a story): ")
-if ans.lower() == "raccontare":
-    score += 1
-    print('Corretta')
-else:
-    print('Falso raccontare')
-
-ans = input("19. To dear: ")
-if ans.lower() == "osare":
-    score += 1
-    print('Corretta')
-else:
-    print('Falso osare')
-
-ans = input("20. To complain: ")
-if ans.lower() == "lamentare":
-    score += 1
-    print('Corretta')
-else:
-    print('Falso lamentare')
-
-
-
-print("You have", score, "correct answers")
-mark = (score/total_q) * 100
-
-print("Your mark is: ", mark, "%")
-</code></pre>
-							</section>
 
 						</div>
 					</div>
@@ -235,34 +76,105 @@ print("Your mark is: ", mark, "%")
 											<span class="opener"><b>Articles</b></span>
 											<ul>
 												<li><a href="energyarticles">Energy</a></li>
-												<li><a href="powermarketarticles">Power Market</a></li>
+												<li><a href="powermarketarticles">Power market</a></li>
 												<li><a href="economyarticles">Economy</a></li>
 											</ul>
 										</li>
+										<li><a href="programming"><b>Programming</b></a></li>
 										<li><a href="contribute"><b>Want to contribute to this site?</b></a></li>
 									</ul>
 								</nav>
 
-
-
 							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Overviews</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="futuremarket" class="image"><img src="images/pic07.jpg" alt="" /></a>
+											<p><b>THE FUTURE OF THE POWER MARKET</b><br>What is the future of the power market? More renewable energy leads to a bigger uncertainty in the power market. How will the market look like in a decade?</p>
+											<ul class="actions">
+												<li><a href="futuremarket" class="button">Read more</a></li>
+											</ul>
+										</article>
+										<!--<article>
+											<a href="2019estimation" class="image"><img src="images/pic09.jpg" alt="" /></a>
+											<p><b>NORDIC POWER MARKET IN 2019</b><br>Estimation of the Power Market in 2019. Will the variations we have seen in 2018 continue or will the market stabilize?</p>
+											<ul class="actions">
+												<li><a href="2019estimation" class="button">Read more</a></li>
+											</ul>
+										</article> -->
+										<article>
+											<a href="thenordicpowermarket" class="image"><img src="images/pic03.jpg" alt="" /></a>
+											<p><b>THE NORDIC POWER MARKET</b><br>Learn what there is to know about the Nordic Power Market.</p>
+											<ul class="actions">
+												<li><a href="thenordicpowermarket" class="button">Read more</a></li>
+											</ul>
+										</article>
+										</section>
+								
+								<section>
+
+													<h4>Power Market Pool 2018</h4>
+													<div class="table-wrapper">
+														<table>
+															<thead>
+																<tr>
+																	<th>Energy Resource</th>
+																	<th></th>
+																	<th>Market Share</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td><b>Solar and Wind</b></td>
+																	<td></td>
+																	<td><b>17 %</b></td>
+																</tr>
+																<tr>
+																	<td><b>Fossil</b></td>
+																	<td></td>
+																	<td><b>38 %</b></td>
+																</tr>
+																<tr>
+																	<td><b>Other Renewables</b></td>
+																	<td></td>
+																	<td><b>16 %</b></td>
+																</tr>
+																<tr>
+																	<td><b>Nuclear Power</b></td>
+																	<td></td>
+																	<td><b>29 %</b></td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+								</section>
+							
 
 							<!-- Section -->
 								<section>
 									<header class="major">
 										<h2>Get in touch</h2>
 									</header>
-									<p>Want to be a part of the team and write articles? Or maybe you want to advertise on this website? Just send me a mail!</p>
+									<p>Want to be a part of the team and write articles? Or maybe you want to advertise on this website? Just send a mail!</p>
 									<ul class="contact">
 										<li class="fa-envelope-o">hallingstad.andreas(at)gmail.com</li>
 										<li class="fa-home">Grimstad, Norway</li>
 									</ul>
 								</section>
-
+								
+								<!--
+								<section>
+								<h4>About Me</h4>
+													<p><span class="image left"><img src="images/picid.png" alt="" /></span>Civil Engineering Student eager to bring you energy-related knowledge.<br>Follow me on <a href="https://www.linkedin.com/in/andreasolavhallingstad/">LinkedIn</a></p>
+								</section>
+								-->
 
 							<!-- Footer -->
 								<footer id="footer">
-									<p class="copyright">&copy; The Nordic Grid. All rights reserved.<br> Images: <a href="https://unsplash.com">Unsplash</a>.<br>Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+									<p class="copyright">&copy; The Nordic Grid. All rights reserved.<br>Images: <a href="https://unsplash.com">Unsplash</a>.<br>Run by <a href="https://www.linkedin.com/in/andreasolavhallingstad/">Andreas</a><br>Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 								</footer>
 
 						</div>

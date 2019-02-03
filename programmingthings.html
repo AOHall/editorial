@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>The Nordic Grid</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="shortcut icon" href="images/favicon.ico">
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index" class="logo"><strong>The Nordic Grid</strong> Energy Editorial</a>
+									<ul class="icons">
+										<li><a href="https://www.youtube.com/channel/UC8mi5_41qaHfxglj9_ARj1A" class="icon fa-youtube"><span class="label">YouTube</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+							<section>
+								<h2>Programming</h2>
+								<p>Learning programming will give you an advantage one way or another. We recommend Python and SQL as those two languages should cover most of your needs</p>
+								<h2>Python codes</h2>
+								<h3>Linear Interpolation</h3>
+								<p>This first code is a simple linear interpolation calculator where you need to make sure you add the right y's and x's!<p>
+													<pre><code>x = float(input("Enter value of x: "))
+y1 = float(input("Enter value of y1: "))
+y2 = float(input("Enter value of y2: "))
+x1 = float(input("Enter value of x1: "))
+x2 = float(input("Enter value of x2: "))
+
+ans = y1 + (x-x1)*(y2-y1)/(x2-x1)
+
+print("Answer is: ", ans)
+</code></pre>
+								<h3>Conversion Calculator</h3>
+								<p>This is a very basic conversion calculator that you can easily alter to fit the conversions that you need.<p>
+												<pre><code>conv = input("""A for kWh -> MJ
+B for MJ -> kWh: """)
+
+if conv == 'A':
+    kwh = float(input("Enter amount of kWh: "))
+    mj = 3.6 * kwh
+    print("The amount in MJ is: %f MJ" % mj)
+else:
+    mj = float(input("Enter amount of MJ: "))
+    kwh = mj / 3.6
+    print("The amount in kWh is: %f kWh" % kwh)
+</code></pre>
+
+								<h3>Vocabulary test</h3>
+								<p>This is a vocabulary test with 20 questions. This particular test was used to learn italian, however it can be used to learn a lot more than just that.<p>
+												<pre><code>print("Vocabulary Test")
+score = 0
+total_q = 20
+
+ans = input("1. To download: ")
+if ans.lower() == 'scaricare':
+    score += 1
+    print('Corretta')
+else:
+    print('Falso, "scaricare" è corretta')
+    
+ans = input("2. To fall: ")
+if ans.lower() == 'cadere':
+    score += 1
+    print('Corretta')
+else:
+    print('Falso, cadere')
+    
+ans = input("3. To go down/off: ")
+if ans.lower() == 'scendere':
+    score += 1
+    print('Corretta')
+else:
+    print('Falso, scendere')
+    
+ans = input("4. To place (Ask a question, være oppmerksom, legge grunnlaget: ")
+if ans.lower() == 'porre':
+    score += 1
+    print('Corretta pongo poni pone poniamo ponete pongono')
+else:
+    print('Falso, porre - pongo poni pone poniamo ponete pongono')
+    
+ans = input("5. To turn off, skru av/ slå av: ")
+if ans.lower() == "spegnere":
+    score += 1
+    print('Corretta')
+else:
+    print('Falso spegnere')
+
+ans = input("6. To appear: ")
+if ans.lower() == 'apparire':
+    score += 1
+    print('Corretta')
+else:
+    print('Falso, apparire')
+    
+ans = input("7. To fear: ")
+if ans.lower() == 'temere':
+    score += 1
+    print('Corretta')
+else:
+    print('Falso, temere')
+    
+ans = input("8. To rise: ")
+if ans.lower() == 'sorgere':
+    score += 1
+    print('Corretta')
+else:
+    print('Falso, sorgere')
+    
+ans = input("9. To get on, go up: ")
+if ans.lower() == 'salire':
+    score += 1
+    print('Corretta')
+else:
+    print('Falso, salire')
+    
+ans = input("10. To collapse: ")
+if ans.lower() == "crollare":
+    score += 1
+    print('Corretta')
+else:
+    print('Falso crollare')
+
+ans = input("11. To advice: ")
+if ans.lower() == 'consigliare':
+    score += 1
+    print('Corretta')
+else:
+    print('Falso, consigliare')
+    
+ans = input("12. To take care of: ")
+if ans.lower() == 'curare':
+    score += 1
+    print('Corretta')
+else:
+    print('Falso, curare')
+    
+ans = input("13. To desire: ")
+if ans.lower() == "desiderare":
+    score += 1
+    print('Corretta')
+else:
+    print('Falso desiderare')
+
+ans = input("14. To avoid: ")
+if ans.lower() == "evitare":
+    score += 1
+    print('Corretta')
+else:
+    print('Falso evitare')
+
+ans = input("15. To escape: ")
+if ans.lower() == "sfuggire":
+    score += 1
+    print('Corretta')
+else:
+    print('Falso sfuggire')
+
+ans = input("16. To worry: ")
+if ans.lower() == 'preoccupare':
+    score += 1
+    print('Corretta')
+else:
+    print('Falso, preoccupare')
+    
+ans = input("17. To lend: ")
+if ans.lower() == 'prestare':
+    score += 1
+    print('Corretta, to book is prenotare')
+else:
+    print('Falso, prestare')
+    
+ans = input("18. To tell (a story): ")
+if ans.lower() == "raccontare":
+    score += 1
+    print('Corretta')
+else:
+    print('Falso raccontare')
+
+ans = input("19. To dear: ")
+if ans.lower() == "osare":
+    score += 1
+    print('Corretta')
+else:
+    print('Falso osare')
+
+ans = input("20. To complain: ")
+if ans.lower() == "lamentare":
+    score += 1
+    print('Corretta')
+else:
+    print('Falso lamentare')
+
+
+
+print("You have", score, "correct answers")
+mark = (score/total_q) * 100
+
+print("Your mark is: ", mark, "%")
+</code></pre>
+							</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index"><b>Homepage</b></a></li>
+										<li>
+											<span class="opener"><b>Articles</b></span>
+											<ul>
+												<li><a href="energyarticles">Energy</a></li>
+												<li><a href="powermarketarticles">Power Market</a></li>
+												<li><a href="economyarticles">Economy</a></li>
+											</ul>
+										</li>
+										<li><a href="contribute"><b>Want to contribute to this site?</b></a></li>
+									</ul>
+								</nav>
+
+
+
+							<!-- Section -->
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Want to be a part of the team and write articles? Or maybe you want to advertise on this website? Just send me a mail!</p>
+									<ul class="contact">
+										<li class="fa-envelope-o">hallingstad.andreas(at)gmail.com</li>
+										<li class="fa-home">Grimstad, Norway</li>
+									</ul>
+								</section>
+
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; The Nordic Grid. All rights reserved.<br> Images: <a href="https://unsplash.com">Unsplash</a>.<br>Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
