@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>The Nordic Grid - Energy Articles</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="shortcut icon" href="images/favicon.ico">
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index" class="logo"><strong>The Nordic Grid</strong> Energy Editorial</a>
+									<ul class="icons">
+										<li><a href="https://www.youtube.com/channel/UC8mi5_41qaHfxglj9_ARj1A" class="icon fa-youtube"><span class="label">YouTube</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Using Python Data Visualization to analyse and visualize the power market</h1>
+										<blockquote>Visualizing data is an important step when you want to analyze data. With Python you can use matplotlib and seaborn to produce graphs that makes it easier to understand your data.</blockquote>
+									</header>
+									<!-- Content -->
+										<h2 id="content">Download data</h2>
+										<p>A lot of data is stored online or easily available as xlsx or csv-files. In this article, data for power prices in the Nordics have been downloaded from Nordpool, as well as some weather data, and wind power generation data. The data was converted to CSV in Excel and then uploaded to Jupyter Notebook.</p>
+											
+									<!-- <hr class="major" /> -->
+
+									<h4>Creating the table</h4>
+									<p>Importing the table from CSV-file to Jupyter Notebook is done with the code below. Headers are assigned as well to matching values. The dataframe is stored as df and the code df.head(2) showcases the 20 first rows.</p>
+									<pre><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+filename = "http://www.thenordicgrid.com/Pleas.csv"
+headers = ["Date","Syst","SE1","SE2","SE3", "SE4","FI",
+         "DK1","DK2","Oslo", "Kr.sand","Bergen","Molde","Tr.heim","Tromsø",
+         "EE", "LV","LT","co2quotas","dk1wind","dk2wind","oslotemp"]
+df = pd.read_csv(filename, names = headers)
+df.head(20)
+</code></pre>
+									<p></p>
+									<h4>Importing Matplotlib</h4>
+									<p>Next up the matplot library is imported: matplotlib as mpl and matplotlib.pyplot as plt.</p>
+									<pre><code># use the inline backend to generate the plots within the browser
+%matplotlib inline 
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+mpl.style.use('ggplot') # optional: for ggplot-like style
+</code></pre>
+									<h4>Reversing and locating</h4>
+									<p>All columns are assigned as strings for simplicity. Date is set as index in the dataframe df so that it is easy to locate the different dates if we are looking for a specific date. The dataframe df3 is created storing a reversed version of df, i.e. reversing the rows. Or else the plots would have showcased the dates in the wrong chronological order. df2 is created storing the five first columns. The same is done with df1 for the first 13 columns.</p>
+									<p><pre><code>df.columns = list(map(str, df.columns))
+df.set_index('Date', inplace=True)
+df3 = df.iloc[::-1] #reverse the rows to get dates in the right order on the plots
+df2 = df3.iloc[:,0:5] #locate the 5 first columns
+df2.head()
+df1 = df3.iloc[:,0:13]
+df1.head()</code></pre></p>
+									<span class="image fit"><img src="images/df1head.jpg" alt="" /></span>
+									<h4>Area plot</h4>
+									<p>The following code wil produce our first plot. It is an unstacked area plot based on the dataframe df1. By setting stacked equal to True we will produce a stacked area plot. See the difference in the images below the code.</p>
+									<p><pre><code>df1.plot(kind='area', 
+             stacked=False,
+             figsize=(20, 10), # pass a tuple (x, y) size
+             )
+
+plt.title('Graph of the power price in the Nordics')
+plt.ylabel('EUR/MWh')
+plt.xlabel('Date')
+
+plt.show()</code></pre></p>
+									<span class="image fit"><img src="images/areaplot.jpg" alt="" /></span>
+									<p>The image above is an unstacked area plot while the image below is a stacked area plot.</p>
+									<span class="image fit"><img src="images/areaplotstacked.jpg" alt="" /></span>
+									<h4>Box plots</h4>
+									<p>The next lines of code will display a box plots with data from df2. Annotation will also be added to describe how the price develops. The box plots is very descriptive in itself and is a great way to compare different spot areas and showing the development of prices over time.</p>
+									<p><pre><code>df2.plot(kind='bar', figsize=(10, 6), rot=90) 
+
+plt.xlabel('Date')
+plt.ylabel('System Price [EUR/MWh]')
+plt.title('Power price January 2019')
+
+# Annotate arrow
+plt.annotate('',                      # s: str. will leave it blank for no text
+             xy=(14, 70),             # place head of the arrow at point
+             xytext=(1, 53),         # place base of the arrow at point
+             xycoords='data',         # will use the coordinate system of the object being annotated 
+             arrowprops=dict(arrowstyle='->', connectionstyle='arc3', color='blue', lw=2)
+            )
+
+# Annotate Text
+plt.annotate('Steady increase in selected prices in January', # text to display
+             xy=(4, 59),                    # start the text at at point
+             rotation=9,                  # based on trial and error to match the arrow
+             va='bottom',                    # want the text to be vertically 'bottom' aligned
+             ha='left',                      # want the text to be horizontally 'left' algned.
+            )
+
+plt.show()</code></pre></p>
+									<span class="image fit"><img src="images/boxdia.jpg" alt="" /></span>
+									<h4>Seaborn Regression Plots</h4>
+									<p>Seaborn regression plots gives you effective regression plots with one line of code. It creates regression plots quicker and more efficient than with matplotlib so that you can spend more time analyzing and visualizing, and less time coding. Seaborn is first installed and imported. The index is reset and put back in as a column in the df dataframe. The variable ax creates the regression plot with the Oslo column as the x-value and oslotemp (average temperature in Oslo on a given date) column as the y-value.</p>
+									<p><pre><code># install seaborn
+!pip install seaborn
+
+# import library
+import seaborn as sns
+
+# reset the index to put back in as a column in the df dataframe
+df.reset_index(inplace = True)
+
+ax = sns.regplot(x='Oslo', y='oslotemp', data=df, color='green', marker='+')
+</code></pre></p>
+									<span class="image fit"><img src="images/osloregplot.jpg" alt="" /></span>
+									<p>The generated regression plot shows that there is a certain relation between the temperature and power price in Oslo. Let us see how the wind power produced in DK1 relates to the power price in DK1:</p>
+									<p><pre><code>ax = sns.regplot(x='dk1wind', y='DK1', data=df, color='blue', marker='.')
+</code></pre></p>
+									<span class="image fit"><img src="images/dkregplot.jpg" alt="" /></span>
+									<p>There is quite a solid relation between the wind power generated and the power price as expected.</p>
+									<p>Comparing the two regplots with eachother it is evident that the second one is more precise. Based on that we can conclude, or at least make an assumption, that the wind power production generated in spot area DK1 gives a more precise indication on the power price in DK1 compared to how the temperature in Oslo affects the power price in Oslo. That is good to know for further analysis!</p>
+									<p>Python is a very strong tool to analyze and visualize the power market. The next article related to Python will involve more statistics and analytics.</p>
+													<!-- Box with sources-->
+													<h3>Sources and credits</h3>
+													<div class="box">
+														<p>Data from nordpool. Jupyter Notebook used with Python inspired by IBM course material.</p>
+													</div>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index"><b>Homepage</b></a></li>
+										<li>
+											<span class="opener"><b>Articles</b></span>
+											<ul>
+												<li><a href="energyarticles">Energy</a></li>
+												<li><a href="powermarketarticles">Power Market</a></li>
+												<li><a href="economyarticles">Economy</a></li>
+											</ul>
+										</li>
+										<li><a href="programming"><b>Programming</b></a></li>
+										<li><a href="contribute"><b>Want to contribute to this site?</b></a></li>
+									</ul>
+								</nav>
+
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Want to be a part of the team and write articles? Or maybe you want to advertise on this website? Just send me a mail!</p>
+									<ul class="contact">
+										<li class="fa-envelope-o">hallingstad.andreas(at)gmail.com</li>
+										<li class="fa-home">Grimstad, Norway</li>
+									</ul>
+								</section>
+								
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; The Nordic Grid. All rights reserved.<br>Images: <a href="https://unsplash.com">Unsplash</a>.<br>Run by <a href="https://www.linkedin.com/in/andreasolavhallingstad/">Andreas</a><br>Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
