@@ -89,9 +89,9 @@ LR = LogisticRegression(C=0.01, solver='liblinear').fit(X_train,y_train)
 yhat = LR.predict(X_test)
 yhat
 </code></pre></p>
-									<p>The result is the following array:<br />array([0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0])</p>
+									<p>The result is the following array:<br />[0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]</p>
 									<h4>Predicting Probability</h4>
-									<p>Finally we can predict the probability of churn or no churn. We use the function predict_proba which returns estimates for all classes, ordered by the label of classes. So, the first column is the probability of class 1, P(Y=1|X), and second column is the probability of class 0, P(Y=0|X):</p>
+									<p>Finally we can predict the probability of churn or no churn. We use the function <i>predict_proba</i> which returns estimates for all classes, ordered by the label of classes. So, the first column is the probability of class 1, P(Y=1|X), and second column is the probability of class 0, P(Y=0|X):</p>
 									<p><pre><code>yhat_prob = LR.predict_proba(X_test)
 yhat_prob
 </code></pre></p>
@@ -102,7 +102,7 @@ yhat_prob
 									[0.63432489, 0.36567511],<br />
 									[0.56431839, 0.43568161]</b></p>
 									<h4>Evaluation</h4>
-									<p>One way of looking at accuracy of classifier is to look at confusion matrix.</p>
+									<p>One way of looking at the accuracy of a classifier is to look at a <i>confusion matrix</i>.</p>
 									<p><pre><code>from sklearn.metrics import classification_report, confusion_matrix
 import itertools
 def plot_confusion_matrix(cm, classes,
